@@ -28,6 +28,8 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       //Set Dark and Light Theme
       themeMode: ThemeMode.light,
+      //For remove debuge banner
+      debugShowCheckedModeBanner: false,
       //For Light Theme Colors
       theme: ThemeData(
           //Auto Switch Colors using dart collections
@@ -36,7 +38,7 @@ class MyApp extends StatelessWidget {
           fontFamily: GoogleFonts.lato().fontFamily),
       //For Dark Theme Colors
       darkTheme: ThemeData(brightness: Brightness.dark),
-      initialRoute: "/",
+      initialRoute: MyRoutes.homeRoute,
       routes: {
         "/": (context) => LoginPage(),
         MyRoutes.homeRoute: (context) => HomePage(),
