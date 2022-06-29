@@ -21,10 +21,15 @@ class MyDrawer extends StatelessWidget {
                   margin: EdgeInsets.zero,
                   accountName: Text("Abhishek Bakhai"),
                   accountEmail: Text("abhishek.b@yudiz.com"),
-                  currentAccountPicture: CircleAvatar(
-                    //For Assest Use Asset,
-                    //For Network User a NetworkImage
-                    backgroundImage: NetworkImage(imageURL),
+                  currentAccountPicture: Container(
+                    decoration: BoxDecoration(
+                        color: Colors.deepOrange,
+                        borderRadius: BorderRadius.circular(30)),
+                    child: CircleAvatar(
+                      //For Assest Use Asset,
+                      //For Network User a NetworkImage
+                      backgroundImage: NetworkImage(imageURL),
+                    ),
                   ),
                 )),
             //First Item

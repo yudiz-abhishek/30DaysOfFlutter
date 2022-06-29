@@ -19,3 +19,15 @@ class HomePage extends StatelessWidget {
     );
   }
 }
+
+
+//Only For this Page but give it to whole app we need to give it in themeData appBarTheme, bottomAppBarColor, etc
+      // appBar: AppBar(
+      //   backgroundColor: Colors.white,
+      //   elevation: 0.0,
+      //   iconTheme: IconThemeData(color: Colors.black),
+      //   title: Text(
+      //     "Catalog App",
+      //     style: TextStyle(color: Colors.black),
+      //   ),
+      // )

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_catalog/pages/home_page.dart';
 import 'package:flutter_catalog/pages/login_page.dart';
 import 'package:flutter_catalog/utils/routes.dart';
+import 'package:flutter_catalog/widgets/themes.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 void main() {
@@ -31,13 +32,10 @@ class MyApp extends StatelessWidget {
       //For remove debuge banner
       debugShowCheckedModeBanner: false,
       //For Light Theme Colors
-      theme: ThemeData(
-          //Auto Switch Colors using dart collections
-          primarySwatch: Colors.deepPurple,
-          //For Allover App Font
-          fontFamily: GoogleFonts.lato().fontFamily),
+      theme: MyTheme.lightTheme(context),
       //For Dark Theme Colors
-      darkTheme: ThemeData(brightness: Brightness.dark),
+      darkTheme: MyTheme.darkTheme(context),
+      //Init Screen route
       initialRoute: MyRoutes.homeRoute,
       routes: {
         "/": (context) => LoginPage(),
