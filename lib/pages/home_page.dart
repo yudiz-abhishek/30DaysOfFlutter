@@ -1,13 +1,33 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+import 'dart:convert';
 
 import '../widgets/drawer.dart';
 
-class HomePage extends StatelessWidget {
+class HomePage extends StatefulWidget {
+  @override
+  State<HomePage> createState() => _HomePageState();
+}
+
+class _HomePageState extends State<HomePage> {
+  final int days = 30;
+  final String name = "Abhishek";
+
+  @override
+  void initState() {
+    super.initState();
+    loadData();
+  }
+
+  loadData() async {
+    final cateloagJosn =
+        await rootBundle.loadString("assets/files/catelog.json");
+    final decodedData = jsonDecode(cateloagJosn);
+    var productData = decodedData["products"];
+  }
+
   @override
   Widget build(BuildContext context) {
-    final int days = 30;
-    final String name = "Abhishek";
-
     return Scaffold(
       appBar: AppBar(
         title: Text("Catalog App"),
