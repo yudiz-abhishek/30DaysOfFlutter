@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+<<<<<<< HEAD
 import 'package:flutter/services.dart';
 import 'dart:convert';
 
@@ -25,6 +26,20 @@ class _HomePageState extends State<HomePage> {
     final decodedData = jsonDecode(cateloagJosn);
     var productData = decodedData["products"];
   }
+=======
+import 'package:flutter_catalog/models/catalog.dart';
+import 'package:flutter_catalog/widgets/item_widget.dart';
+
+import '../widgets/drawer.dart';
+
+class HomePage extends StatelessWidget {
+  final int days = 30;
+  final String name = "Abhishek";
+  @override
+  Widget build(BuildContext context) {
+    //For Dummy List with same items
+    final dummyList = List.generate(20, (index) => CatalogModel.items[0]);
+>>>>>>> bb850c3970ac4d0974fc136de0f11634496c7575
 
   @override
   Widget build(BuildContext context) {
@@ -32,9 +47,13 @@ class _HomePageState extends State<HomePage> {
       appBar: AppBar(
         title: Text("Catalog App"),
       ),
-      body: Center(
-          child: Container(
-              child: Text("Welcome to $days days of flutter by $name"))),
+      body: ListView.builder(
+          itemCount: dummyList.length,
+          itemBuilder: (content, index) {
+            return ItemWidget(
+              item: dummyList[index],
+            );
+          }),
       drawer: MyDrawer(),
     );
   }
