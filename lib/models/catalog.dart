@@ -12,15 +12,7 @@
 // final prodcuts = [Item()];
 
 class CatalogModel {
-  static final items = [
-    Item(
-        id: 1,
-        name: "iPhone 12 Pro",
-        desc: "12th Generation Desc",
-        price: 999,
-        color: "#33505a",
-        image: "https://fdn2.gsmarena.com/vv/pics/apple/apple-iphone-12-2.jpg")
-  ];
+  static List<Item> items = [];
 }
 
 class Item {
@@ -38,4 +30,34 @@ class Item {
       required this.price,
       required this.color,
       required this.image});
+
+  // Factory Method is referred as a creational design pattern which provides an interface for creating objects in a superclass,
+  //but allows subclasses to alter the type of objects that will be created. Also known as virtual constructors.
+  // ::: IMP :::
+  //dynamic: can change TYPE of the variable, & can change VALUE of the variable later in code.
+  //var: can't change TYPE of the variable, but can change VALUE of the variable later in code.
+  //final: can't change TYPE of the variable, & can't change VALUE of the variable later in code.
+
+  //We can use also the dart class generator extension for generate this decoding and encoding map methods
+
+  factory Item.fromMap(Map<String, dynamic> map) {
+    return Item(
+      id: map["id"],
+      name: map["name"],
+      desc: map["desc"],
+      price: map["price"],
+      color: map["color"],
+      image: map["image"],
+    );
+  }
+
+  //While save to Database this map for encoding data
+  toMap() => {
+        "id": id,
+        "name": name,
+        "desc": desc,
+        "price": price,
+        "color": color,
+        "image": image,
+      };
 }
