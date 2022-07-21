@@ -45,17 +45,45 @@ class _HomePageState extends State<HomePage> {
       body: Padding(
         padding: const EdgeInsets.all(8.0),
         child: (CatalogModel.items != null && CatalogModel.items.isNotEmpty)
-            ? ListView.builder(
+            ? GridView.builder(
+                //For Fixed Corss Axis Count (Row) (One Row Containt 2 Items)
+                //MainAxisSpacing Vertical Spacing (Up-Down Spacing)
+                //crossAxisSpacing  (Side by Side Spacing)
+                gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                    crossAxisCount: 2,
+                    mainAxisSpacing: 16,
+                    crossAxisSpacing: 16),
+                itemBuilder: (context, index) {
+                  final item = CatalogModel.items[index];
+                  //For Grid Tile
+                  return Card(
+                      clipBehavior: Clip.antiAlias,
+                      shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(10)),
+                      child: GridTile(
+                        header: Container(
+                          child: Text(
+                            item.name,
+                            style: TextStyle(color: Colors.white),
+                          ),
+                          padding: const EdgeInsets.all(
+                              12), //Once set complier not check again
+                          decoration: BoxDecoration(color: Colors.deepPurple),
+                        ),
+                        child: Image.network(item.image),
+                        footer: Container(
+                          child: Text(
+                            item.price.toString(),
+                            style: TextStyle(color: Colors.white),
+                          ),
+                          padding: const EdgeInsets.all(
+                              12), //Once set complier not check again
+                          decoration: BoxDecoration(color: Colors.black),
+                        ),
+                      ));
+                },
                 itemCount: CatalogModel.items.length,
-                // itemBuilder: (content, index) {
-                //   return ItemWidget(
-                //     item: CatalogModel.items[index],
-                //   );
-                // })
-                //Using Shorhand operator
-                itemBuilder: (content, index) => ItemWidget(
-                      item: CatalogModel.items[index],
-                    ))
+              )
             : Center(
                 child:
                     CircularProgressIndicator(), //Process Indicator for Loading Data from DB
@@ -65,6 +93,19 @@ class _HomePageState extends State<HomePage> {
     );
   }
 }
+
+//For ListView
+/*ListView.builder(
+                itemCount: CatalogModel.items.length,
+                // itemBuilder: (content, index) {
+                //   return ItemWidget(
+                //     item: CatalogModel.items[index],
+                //   );
+                // })
+                //Using Shorhand operator
+                itemBuilder: (content, index) => ItemWidget(
+                      item: CatalogModel.items[index],
+                    )) */
 
 //Only For this Page but give it to whole app we need to give it in themeData appBarTheme, bottomAppBarColor, etc
 // appBar: AppBar(
