@@ -18,8 +18,9 @@ class HomeDetailPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-          // title: catelog.name.text.bold.color(MyTheme.darkBluishColor).make(),
-          ),
+        // title: catelog.name.text.bold.color(MyTheme.darkBluishColor).make(),
+        backgroundColor: Colors.transparent,
+      ),
       backgroundColor: MyTheme.creamColor,
       bottomNavigationBar: Container(
         color: Colors.white,
@@ -39,10 +40,10 @@ class HomeDetailPage extends StatelessWidget {
                 shape: MaterialStateProperty.all(
                     StadiumBorder()), //For Give the shpae for Button
               ),
-              child: "Buy".text.make(),
-            ).wh(100, 50) //For Give Width and Heigh (for Elevated Button)
+              child: "Add to cart".text.make(),
+            ).wh(120, 50) //For Give Width and Heigh (for Elevated Button)
           ],
-        ).p32(),
+        ).p16(),
       ),
       body: SafeArea(
         bottom: false, //For Remove Safe Edge from Bottom area
@@ -70,6 +71,11 @@ class HomeDetailPage extends StatelessWidget {
                       .textStyle(context.captionStyle) //for Caption Style
                       .make(),
                   10.heightBox, //For Spacing Empty Box
+                  "Amet sanctus diam aliquyam tempor amet, nonumy sed ipsum rebum et dolores ea, rebum magna duo sed vero nonumy, labore rebum sanctus ut takimata duo, duo et est et gubergren dolor sed dolores eirmod. Takimata dolor nonumy amet voluptua lorem dolores, sit no ipsum rebum sit, dolor stet erat aliquyam."
+                      .text
+                      .textStyle(context.captionStyle)
+                      .make()
+                      .p16()
                 ],
               ).py64(),
             ),
