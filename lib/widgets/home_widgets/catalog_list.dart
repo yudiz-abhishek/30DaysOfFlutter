@@ -57,7 +57,7 @@ class CatalogItem extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             catelog.name.text.lg //lg => textScaleFactor
-                .color(MyTheme.darkBluishColor)
+                .color(context.accentColor)
                 .bold
                 .make(),
             catelog.desc.text
@@ -76,7 +76,7 @@ class CatalogItem extends StatelessWidget {
                     onPressed: () {},
                     style: ButtonStyle(
                       backgroundColor:
-                          MaterialStateProperty.all(MyTheme.darkBluishColor),
+                          MaterialStateProperty.all(context.theme.buttonColor),
                       shape: MaterialStateProperty.all(
                           StadiumBorder()), //For Give the shpae for Button
                     ),
@@ -87,7 +87,7 @@ class CatalogItem extends StatelessWidget {
         ))
       ],
     ))
-        .white
+        .color(context.cardColor)
         .roundedLg //RoundedLg => Large (Velocity_X)
         .square(150)
         .make()

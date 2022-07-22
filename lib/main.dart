@@ -28,7 +28,7 @@ class MyApp extends StatelessWidget {
 
     return MaterialApp(
       //Set Dark and Light Theme
-      themeMode: ThemeMode.light,
+      themeMode: ThemeMode.system,
       //For remove debuge banner
       debugShowCheckedModeBanner: false,
       //For Light Theme Colors

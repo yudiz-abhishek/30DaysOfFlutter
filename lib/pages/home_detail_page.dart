@@ -21,9 +21,9 @@ class HomeDetailPage extends StatelessWidget {
         // title: catelog.name.text.bold.color(MyTheme.darkBluishColor).make(),
         backgroundColor: Colors.transparent,
       ),
-      backgroundColor: MyTheme.creamColor,
+      backgroundColor: context.canvasColor,
       bottomNavigationBar: Container(
-        color: Colors.white,
+        color: context.cardColor,
         child: ButtonBar(
           alignment:
               MainAxisAlignment.spaceBetween, //For Equal Spacing for both
@@ -36,7 +36,7 @@ class HomeDetailPage extends StatelessWidget {
               onPressed: () {},
               style: ButtonStyle(
                 backgroundColor:
-                    MaterialStateProperty.all(MyTheme.darkBluishColor),
+                    MaterialStateProperty.all(context.theme.buttonColor),
                 shape: MaterialStateProperty.all(
                     StadiumBorder()), //For Give the shpae for Button
               ),
@@ -59,12 +59,12 @@ class HomeDetailPage extends StatelessWidget {
             edge: VxEdge.TOP, //Arc to Top
             arcType: VxArcType.CONVEY,
             child: Container(
-              color: Colors.white,
+              color: context.cardColor,
               width: context.screenWidth,
               child: Column(
                 children: [
                   catelog.name.text.xl2 //lg => textScaleFactor
-                      .color(MyTheme.darkBluishColor)
+                      .color(context.accentColor)
                       .bold
                       .make(),
                   catelog.desc.text.xl
