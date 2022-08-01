@@ -12,7 +12,7 @@
 // final prodcuts = [Item()];
 
 class CatalogModel {
-  static List<Item> items = [];
+  static List<Item> items;
 
   //Get Item by Id
   static Item getById(int id) =>
