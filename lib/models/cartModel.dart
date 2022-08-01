@@ -1,6 +1,12 @@
 import 'package:flutter_catalog/models/catalog.dart';
 
 class CartModel {
+  //Singleton Class
+  static final cartModel = CartModel._internal();
+  CartModel._internal();
+  factory CartModel() =>
+      cartModel; //Using factory keyword when we are using cartModel obj it will send us same obj
+
   //Catalog Fields (private)
   late CatalogModel
       _catalog; //late => declare variables that will be initialized later. These are called non-nullable variables as they are initialized after the declaration.

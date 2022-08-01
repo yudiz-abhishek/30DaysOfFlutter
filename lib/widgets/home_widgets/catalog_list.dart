@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_catalog/models/cartModel.dart';
 import 'package:flutter_catalog/pages/home_detail_page.dart';
 import 'package:velocity_x/velocity_x.dart';
 
@@ -72,15 +73,7 @@ class CatalogItem extends StatelessWidget {
               // For Button Bar
               children: [
                 "\$${catelog.price}".text.bold.xl.make(),
-                ElevatedButton(
-                    onPressed: () {},
-                    style: ButtonStyle(
-                      backgroundColor:
-                          MaterialStateProperty.all(context.theme.buttonColor),
-                      shape: MaterialStateProperty.all(
-                          StadiumBorder()), //For Give the shpae for Button
-                    ),
-                    child: "Add to cart".text.make())
+                _AddToCart(catalog: catelog)
               ],
             ).pOnly(right: 8)
           ],
@@ -92,5 +85,41 @@ class CatalogItem extends StatelessWidget {
         .square(150)
         .make()
         .py16();
+  }
+}
+
+//For Add to Cart StateFul Widget
+class _AddToCart extends StatefulWidget {
+  final Item catalog;
+
+  const _AddToCart({
+    Key? key,
+    required this.catalog, //For Required data
+  }) : super(key: key);
+
+  @override
+  State<_AddToCart> createState() => _AddToCartState();
+}
+
+class _AddToCartState extends State<_AddToCart> {
+  bool isAdded = false;
+  final _catelog = CatalogModel(); //_ for private member
+  final _cart = CartModel(); //_ for private member
+
+  @override
+  Widget build(BuildContext context) {
+    return ElevatedButton(
+        onPressed: () {
+          isAdded = isAdded.toggle();
+          _cart.catalog = _catelog;
+          _cart.add(widget.catalog);
+          setState(() {});
+        },
+        style: ButtonStyle(
+          backgroundColor: MaterialStateProperty.all(context.theme.buttonColor),
+          shape: MaterialStateProperty.all(
+              StadiumBorder()), //For Give the shpae for Button
+        ),
+        child: isAdded ? Icon(Icons.done) : "Add to cart".text.make());
   }
 }

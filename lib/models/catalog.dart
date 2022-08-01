@@ -12,6 +12,11 @@
 // final prodcuts = [Item()];
 
 class CatalogModel {
+//Singleton Class
+  static final catModel = CatalogModel._internal();
+  CatalogModel._internal();
+  factory CatalogModel() => catModel;
+
   static List<Item> items = [];
 
   //Get Item by Id
